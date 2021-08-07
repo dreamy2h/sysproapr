@@ -1,0 +1,21 @@
+body {
+    background-image: url("fondo.jpg") ;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #66999;
+}
+.my-error-class {
+    background:url("../plugins/jquery-validation/demo/images/unchecked.gif");
+    background-repeat: no-repeat;
+    padding-left: 16px;
+    padding-bottom: 2px;
+    font-weight: bold;
+    color: #EA5200;
+}
+table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {
+    background-color: #3ea1d9;
+    /*color: white;*/
+    font-weight: bold;
+}
