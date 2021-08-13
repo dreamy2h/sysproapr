@@ -221,7 +221,7 @@ function bloquear_usuario(opcion, observacion) {
 
                 $("#grid_usuarios").dataTable().fnReloadAjax(base_url + "/Configuracion/Ctrl_usuarios/datatable_usuarios");
             } else {
-                Toast.create("Error", respuesta TOAST_STATUS.DANGER, 5000);
+                Toast.create("Error", respuesta, TOAST_STATUS.DANGER, 5000);
             }
         },
         error: function(error) {
@@ -255,7 +255,7 @@ function resetear_clave() {
                     footer: "Copia la clave para enviar"
                 });
             } else {
-                Toast.create("Error", respuesta TOAST_STATUS.DANGER, 5000);
+                Toast.create("Error", respuesta, TOAST_STATUS.DANGER, 5000);
             }
         },
         error: function(error) {
