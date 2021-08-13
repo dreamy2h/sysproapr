@@ -6,7 +6,7 @@
 <head>
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<title>SysProAPR</title>
+  	<title>SISPRO APR</title>
   	<link rel="icon" href="<?php echo base_url(); ?>/imagenes/icono.png" type="image/png" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   	<link rel="stylesheet" href="<?php echo base_url(); ?>/plugins/fontawesome-free/css/all.min.css">
@@ -63,7 +63,7 @@
 	  	<aside class="main-sidebar sidebar-dark-primary elevation-4">
 		    <a href="index3.html" class="brand-link">
 	      		<img src="<?php echo base_url(); ?>/imagenes/icono.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-	      		<span class="brand-text font-weight-light">SysProAPR</span>
+	      		<span class="brand-text font-weight-light">SISPRO APR</span>
 	    	</a>
 	    	<div class="sidebar">
 	      		<div class="user-panel mt-3 pb-3 mb-3 d-flex">

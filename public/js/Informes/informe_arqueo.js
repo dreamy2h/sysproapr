@@ -88,6 +88,7 @@ $(document).ready(function() {
     $("#btn_buscar").on("click", function() {
     	if ($("#form_histPagos").valid()) {
 		   	buscar_pagos();
+            $("#informeArqueo").collapse("hide");
     	}
     });
 

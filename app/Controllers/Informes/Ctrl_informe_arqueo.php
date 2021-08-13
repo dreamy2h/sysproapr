@@ -59,7 +59,7 @@
 			}
 
 			if ($desde != "" && $hasta != "") {
-				$this->caja->where("date_format(caja.fecha, '%d-%m-%Y') between '$desde' and '$hasta'");
+				$this->caja->where("date_format(caja.fecha, '%d-%m-%Y %H:%m') between '$desde' and '$hasta'");
 			}
 
 			if ($id_forma_pago != "") {
