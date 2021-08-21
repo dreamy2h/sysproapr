@@ -15,7 +15,7 @@ $(document).ready(function() {
             { "data": "usuario" },
             { "data": "fecha" },
             { 
-                "data": "folio_sii",
+                "data": "folio_factura",
                 "render": function(data, type, row) {
                     return "<button type='button' class='imprimir_factura btn btn-info' title='Imprimir Factura'><i class='fas fa-print'></i></button>";
                 }

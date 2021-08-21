@@ -50,9 +50,11 @@
 		public function emitir_dte() {
 			$this->validar_sesion();
 			define("BOLETA_EXENTA", 41);
-			define("FACTURA_ELECTRONICA", 33);
+			define("FACTURA_EXENTA", 34);
 	        define("ASIGNA_FOLIO_BOLECT", 7);
 	        define("PENDIENTE", 1);
+	        define("BOLETA", 1);
+	        define("FACTURA", 2);
 
 			$url = 'https://libredte.cl';
 			$hash = $this->sesión->hash_apr_ses;
@@ -61,7 +63,18 @@
 			$folios = $this->request->getPost("arr_boletas");
 
 			foreach ($folios as $folio) {
-				$datosMetros = $this->metros->select("id_socio")->select("monto_facturable")->select("total_mes")->select("total_servicios")->select("multa")->select("cuota_repactacion")->select("consumo_anterior")->select("consumo_actual")->select("metros")->where("id", $folio)->first();
+				$datosMetros = $this->metros
+				->select("id_socio")
+				->select("monto_facturable")
+				->select("total_mes")
+				->select("total_servicios")
+				->select("multa")
+				->select("cuota_repactacion")
+				->select("consumo_anterior")
+				->select("consumo_actual")
+				->select("metros")
+				->where("id", $folio)
+				->first();
 
 
 				$consumo_anterior = $datosMetros["consumo_anterior"];
@@ -75,7 +88,16 @@
 				$id_socio =  $datosMetros["id_socio"];
 
 				if (intval($total_mes) > 0) {
-					$datosSocios = $this->socios->select("concat(rut, '-', dv) as rut_socio")->select("concat(nombres, ' ', ape_pat, ' ', ape_mat) as nombre_socio")->select("concat(calle, ', ', numero, ', ', resto_direccion) as direccion")->select("rol")->select("id_comuna")->where("id", $id_socio)->first();
+					$datosSocios = $this->socios
+					->select("concat(socios.rut, '-', socios.dv) as rut_socio")
+					->select("concat(socios.nombres, ' ', socios.ape_pat, ' ', socios.ape_mat) as nombre_socio")
+					->select("concat(socios.calle, ', ', socios.numero, ', ', socios.resto_direccion) as direccion")
+					->select("socios.rol")
+					->select("socios.id_comuna")
+					->select("a.id_tipo_documento as tipo_documento")
+					->join("arranques a", "a.id_socio = socios.id")
+					->where("socios.id", $id_socio)
+					->first();
 
 					if ($datosSocios["rut_socio"] != "") {
 						$rut_socio = $datosSocios["rut_socio"];
@@ -101,6 +123,16 @@
 					} else {
 						$comuna = "Sin Comuna";
 					}
+
+					switch ($datosSocios["tipo_documento"]) {
+						case BOLETA:
+							$tipo_documento = BOLETA_EXENTA;
+							break;
+
+						case FACTURA:
+							$tipo_documento = FACTURA_EXENTA;
+							break;
+					}
 					
 					$datosParaGrafico = $this->metros->select("date_format(fecha_ingreso, '%m-%Y') as fecha")->select("consumo_actual")->where("id_socio", $id_socio)->whereNotIn("estado", [0])->findAll();
 
@@ -123,7 +155,7 @@
 					$dte = [
 		                'Encabezado' => [
 		                    'IdDoc' => [
-		                        'TipoDTE' => BOLETA_EXENTA,
+		                        'TipoDTE' => $tipo_documento,
 		                    ],
 		                    'Emisor' => [
 		                        'RUTEmisor' => $rut_apr,
@@ -194,6 +226,7 @@
 		            } else {
 		                $datosMetrosSave = [
 		                	"folio_bolect" => $generar['body']['folio'],
+		                	"id_tipo_documento" => $datosSocios["tipo_documento"],
 		                	"id" => $folio
 		                ];
 
@@ -237,6 +270,9 @@
 			$mpdf = new \Mpdf\Mpdf();
 
 			define("BOLETA_EXENTA", 41);
+			define("FACTURA_EXENTA", 34);
+			define("BOLETA", 1);
+			define("FACTURA", 2);
 
 			$url = 'https://libredte.cl';
 			$hash = $this->sesión->hash_apr_ses;
@@ -246,11 +282,22 @@
 			$folios = explode(",", $arr_boletas);
 
 			foreach ($folios as $folio) {
-				$datosMetros = $this->metros->select("folio_bolect")->where("id", $folio)->first();
+				$datosMetros = $this->metros->select("folio_bolect")->select("id_tipo_documento")->where("id", $folio)->first();
 				$folio_sii = $datosMetros["folio_bolect"];
+				$tipo_documento = $datosMetros["id_tipo_documento"];
+
+				switch ($tipo_documento) {
+					case BOLETA:
+						$tipo_documento = BOLETA_EXENTA;	
+						break;
+
+					case FACTURA:
+						$tipo_documento = FACTURA_EXENTA;	
+						break;
+				}
 
 				// obtener el PDF del DTE
-	            $pdf = $LibreDTE->get('/dte/dte_emitidos/pdf/' . BOLETA_EXENTA . '/' . $folio_sii . '/' . $rut_apr);
+	            $pdf = $LibreDTE->get('/dte/dte_emitidos/pdf/' . $tipo_documento . '/' . $folio_sii . '/' . $rut_apr);
 	            if ($pdf['status']['code']!=200) {
 	                die('Error al generar PDF del DTE: '.$pdf['body']."\n");
 	            }

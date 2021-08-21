@@ -49,7 +49,7 @@
 				$hash = $this->sesión->hash_apr_ses;
 				$rut_apr = $this->sesión->rut_apr_ses . "-" . $this->sesión->dv_apr_ses;
 
-				define("FACTURA_ELECTRONICA", 33);
+				define("FACTURA_EXENTA", 34);
 				define("ACTIVO", 1);
 				define("ERROR", 0);
 				define("OK", 1);
@@ -93,7 +93,7 @@
 				$dte = [
 	                'Encabezado' => [
 	                    'IdDoc' => [
-	                        'TipoDTE' => FACTURA_ELECTRONICA,
+	                        'TipoDTE' => FACTURA_EXENTA,
 	                    ],
 	                    'Emisor' => [
 	                        'RUTEmisor' => $rut_apr,
@@ -108,18 +108,20 @@
 	                ],
 	                'Detalle' => [
 						[
+							'IndExe' => 1,
 	                        'NmbItem' => 'Subsidios 100%',
 	                        'QtyItem' => 1,
 	                        'PrcItem' => $sub100,
 						],
 						[
+							'IndExe' => 1,
 	                        'NmbItem' => 'Subsidios 50%',
 	                        'QtyItem' => 1,
 	                        'PrcItem' => $sub50,
 						]
 					]
 	            ];
-
+	            
 	            $LibreDTE = new \sasco\LibreDTE\SDK\LibreDTE($hash, $url);
 
 	            $emitir = $LibreDTE->post('/dte/documentos/emitir', $dte);
@@ -145,7 +147,7 @@
 					exit();
 	            } else {
 	            	$datosFacturaMuniSave = [
-	            		"mes_facturado" => date_format(date_create("01-" . $mes_facturado), 'd-m-Y'),
+	            		"mes_facturado" => date_format(date_create("01-" . $mes_facturado), 'Y-m-d'),
 	            		"id_usuario" => $id_usuario,
 	            		"fecha" => $fecha,
 	            		"id_apr" => $id_apr,
@@ -169,7 +171,7 @@
 			$this->validar_sesion();
 			$mpdf = new \Mpdf\Mpdf();
 
-			define("FACTURA_ELECTRONICA", 33);
+			define("FACTURA_EXENTA", 34);
 
 			$url = 'https://libredte.cl';
 			$hash = $this->sesión->hash_apr_ses;
@@ -177,7 +179,7 @@
 			$LibreDTE = new \sasco\LibreDTE\SDK\LibreDTE($hash, $url);
 
 			// obtener el PDF del DTE
-            $pdf = $LibreDTE->get('/dte/dte_emitidos/pdf/' . FACTURA_ELECTRONICA . '/' . $folio_sii . '/' . $rut_apr);
+            $pdf = $LibreDTE->get('/dte/dte_emitidos/pdf/' . FACTURA_EXENTA . '/' . $folio_sii . '/' . $rut_apr);
             if ($pdf['status']['code']!=200) {
                 die('Error al generar PDF del DTE: '.$pdf['body']."\n");
             }
