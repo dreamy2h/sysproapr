@@ -28,8 +28,8 @@
 			$datosBusqueda = json_decode($datosBusqueda, true);
 
 			$id_socio = $datosBusqueda["id_socio"];
-	    	$desde = $datosBusqueda["desde"] . " 00:00";
-			$hasta = $datosBusqueda["hasta"] . " 23:59";
+	    	$desde = date_format(date_create($datosBusqueda["desde"] . "00:00"), 'Y-m-d H:i');
+			$hasta = date_format(date_create($datosBusqueda["hasta"] . "23:59"), 'Y-m-d H:i');
 			$id_forma_pago = $datosBusqueda["id_forma_pago"];
 			$punto_blue = $datosBusqueda["punto_blue"];
 
@@ -59,7 +59,7 @@
 			}
 
 			if ($desde != "" && $hasta != "") {
-				$this->caja->where("date_format(caja.fecha, '%d-%m-%Y %H:%m') between '$desde' and '$hasta'");
+				$this->caja->where("caja.fecha between '$desde' and '$hasta'");
 			}
 
 			if ($id_forma_pago != "") {
