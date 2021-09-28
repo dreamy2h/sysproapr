@@ -9,7 +9,7 @@
 	    protected $returnType = 'array';
 	    // protected $useSoftDeletes = true;
 
-	    protected $allowedFields = ['id', 'nombre', 'id_comuna', 'calle', 'numero', 'resto_direccion', 'hash_sii', 'codigo_comercio', 'tope_subsidio', 'rut', 'dv', 'id_usuario', 'fecha', 'fono'];
+	    protected $allowedFields = ['id', 'nombre', 'id_comuna', 'calle', 'numero', 'resto_direccion', 'hash_sii', 'codigo_comercio', 'tope_subsidio', 'rut', 'dv', 'id_usuario', 'fecha', 'fono', 'id_tipo_multa', 'tipo_multa_detalle'];
 
 	    public function datatable_apr($db) {
 	    	$consulta = "SELECT 
@@ -28,46 +28,23 @@
 						    apr.resto_direccion,
 						    u.usuario,
 						    date_format(apr.fecha, '%d-%m-%Y %H:%i:%s') as fecha,
-						    apr.fono
+						    apr.fono,
+						    apr.id_tipo_multa,
+						    tm.glosa as tipo_multa,
+						    apr.tipo_multa_detalle as detalle_multa
 						from 
 							apr
 							inner join usuarios u on u.id = apr.id_usuario
 						    inner join comunas c on c.id = apr.id_comuna
-						    inner join provincias p on p.id = c.id_provincia";
+						    inner join provincias p on p.id = c.id_provincia
+						    inner join tipo_multa tm on apr.id_tipo_multa = tm.id";
 
 
 			$query = $db->query($consulta);
-			$apr = $query->getResultArray();
-
-			foreach ($apr as $key) {
-				$row = array(
-					"id_apr" => $key["id_apr"],
-					"rut_apr" => $key["rut_apr"],
-					"nombre_apr" => $key["nombre_apr"],
-					"hash_sii" => $key["hash_sii"],
-					"codigo_comercio" => $key["codigo_comercio"],
-					"tope_subsidio" => $key["tope_subsidio"],
-					"id_region" => $key["id_region"],
-					"id_provincia" => $key["id_provincia"],
-					"id_comuna" => $key["id_comuna"],
-					"comuna" => $key["comuna"],
-					"calle" => $key["calle"],
-					"numero" => $key["numero"],
-					"resto_direccion" => $key["resto_direccion"],
-					"usuario" => $key["usuario"],
-					"fecha" => $key["fecha"],
-					"fono" => $key["fono"]
-				);
-
-				$data[] = $row;
-			}
-
-			if (isset($data)) {
-				$salida = array("data" => $data);
-				return json_encode($salida);
-			} else {
-				return "{ \"data\": [] }";
-			}
+			$data = $query->getResultArray();
+			
+			$salida = array("data" => $data);
+			return json_encode($salida);
 	    }
 	}
 ?>

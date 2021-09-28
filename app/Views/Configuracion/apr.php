@@ -112,6 +112,20 @@
 			                            </div>
 		                			</div>
 		                		</div>
+		                		<div class="row">
+		                			<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+		                				<div class="form-group">
+			                                <label class="small mb-1" for="cmb_tipo_multa">Tipo Multa</label>
+			                                <select id="cmb_tipo_multa" name="cmb_tipo_multa" class="form-control"></select>
+			                            </div>
+			                        </div>
+			                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+		                				<div class="form-group">
+			                                <label class="small mb-1" for="txt_tipo_multa_det">Tipo Multa Detalle</label>
+			                                <input type='text' class="form-control" id='txt_tipo_multa_det' name="txt_tipo_multa_det" />
+			                            </div>
+			                        </div>
+		                		</div>
 		                	</form>
 		                </div>
 		            </div>

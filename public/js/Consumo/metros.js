@@ -297,6 +297,33 @@ function existe_consumo_mes() {
             } else {
                 habilita_consumo_actual();
                 calcular_total_servicios();
+                
+                ($("#txt_id_tipo_multa_ses").val() != 3) && calcular_multa();
+            }
+        },
+        error: function(error) {
+            respuesta = JSON.parse(error["responseText"]);
+            Toast.create("Error", respuesta.message, TOAST_STATUS.DANGER, 5000);
+        }
+    });
+}
+
+function calcular_multa() {
+    var id_socio = $("#txt_id_socio").val();
+
+    $.ajax({
+        url: base_url + "/Consumo/Ctrl_metros/calcular_multa",
+        type: "POST",
+        async: false,
+        dataType: "json",
+        data: {
+            id_socio: id_socio
+        },
+        success: function(respuesta) {
+            if (respuesta.multa != null) {
+                $("#txt_multa").val(peso.formateaNumero(respuesta.multa));
+            } else {
+                $("#txt_multa").val(0);
             }
         },
         error: function(error) {
@@ -329,6 +356,7 @@ $(document).ready(function() {
     $("#dt_fecha_vencimiento").prop("readonly", true);
     $("#txt_cargo_fijo").prop("readonly", true);
     $("#txt_monto_facturable").prop("readonly", true);
+    ($("#txt_id_tipo_multa_ses").val() != 3) && $("#txt_multa").prop("readonly", true);
 
     des_habilitar(true, false);
 
@@ -405,7 +433,7 @@ $(document).ready(function() {
     });
 
     $("#dt_fecha_ingreso").datetimepicker({
-        format: "DD-MM-YYYY",
+        format: "MM-YYYY",
         useCurrent: false,
         locale: moment.locale("es")
     }).on("dp.change", function() {

@@ -73,7 +73,9 @@
 									"apr_ses" => $datosApr["nombre"],
 									"hash_apr_ses" => $datosApr["hash_sii"],
 									"rut_apr_ses" => $datosApr["rut"],
-									"dv_apr_ses" => $datosApr["dv"]
+									"dv_apr_ses" => $datosApr["dv"],
+									"id_tipo_multa_ses" => $datosApr["id_tipo_multa"],
+									"tipo_multa_detalle_ses" => $datosApr["tipo_multa_detalle"],
 								];
 
 								$session = session();

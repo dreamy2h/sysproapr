@@ -17,6 +17,8 @@ function des_habilitar(a, b) {
     $("#txt_resto_direccion").prop("disabled", a);
     $("#txt_tope_subsidio").prop("disabled", a);
     $("#txt_fono").prop("disabled", a);
+    $("#cmb_tipo_multa").prop("disabled", a);
+    $("#txt_tipo_multa_det").prop("disabled", a);
 }
 
 function mostrar_datos_apr(data) {
@@ -31,6 +33,8 @@ function mostrar_datos_apr(data) {
     $("#txt_resto_direccion").val(data["resto_direccion"]);
     $("#txt_tope_subsidio").val(data["tope_subsidio"]);
     $("#txt_fono").val(data["fono"]);
+    $("#cmb_tipo_multa").val(data["id_tipo_multa"]);
+    $("#txt_tipo_multa_det").val(data["detalle_multa"]);
 }
 
 function llenar_cmb_region() {
@@ -110,6 +114,8 @@ function guardar_apr() {
     var resto_direccion = $("#txt_resto_direccion").val();
     var tope_subsidio = $("#txt_tope_subsidio").val();
     var fono = $("#txt_fono").val();
+    var tipo_multa = $("#cmb_tipo_multa").val();
+    var tipo_multa_det = $("#txt_tipo_multa_det").val();
 
     $.ajax({
         url: base_url + "/Configuracion/Ctrl_apr/guardar_apr",
@@ -124,7 +130,9 @@ function guardar_apr() {
             id_comuna: id_comuna,
             resto_direccion: resto_direccion,
             tope_subsidio: tope_subsidio,
-            fono: fono
+            fono: fono,
+            tipo_multa: tipo_multa,
+            tipo_multa_det: tipo_multa_det
         },
         success: function(respuesta) {
             const OK = 1;
@@ -185,6 +193,26 @@ var Fn = {
     }
 }
 
+function llenar_cmb_tipo_multa() {
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: base_url + "/Configuracion/Ctrl_apr/llenar_cmb_tipo_multa",
+    }).done( function(data) {
+        $("#cmb_tipo_multa").html('');
+
+        var opciones = "<option value=\"\">Seleccione una opción</option>";
+        
+        for (var i = 0; i < data.length; i++) {
+            opciones += "<option value=\"" + data[i].id + "\">" + data[i].tipo_multa + "</option>";
+        }
+
+        $("#cmb_tipo_multa").append(opciones);
+    }).fail(function(error){
+        respuesta = JSON.parse(error["responseText"]);
+        Toast.create("Error", respuesta.message, TOAST_STATUS.DANGER, 5000);
+    });
+}
 
 $(document).ready(function() {
     $("#txt_id_apr").prop("disabled", true);
@@ -192,6 +220,7 @@ $(document).ready(function() {
     llenar_cmb_region();
     llenar_cmb_provincia();
     llenar_cmb_comuna();
+    llenar_cmb_tipo_multa();
 
     $("#btn_nuevo").on("click", function() {
         des_habilitar(false, true);
@@ -257,6 +286,15 @@ $(document).ready(function() {
         this.value = convertirMayusculas(this.value);
     });
 
+    $("#cmb_tipo_multa").on("change", function(value) {
+        $("#txt_tipo_multa_det").val("");
+        if ($(this).val() == 3) {
+            $("#txt_tipo_multa_det").prop("disabled", true);
+        } else {
+            $("#txt_tipo_multa_det").prop("disabled", false);
+        }
+    });
+
     $.validator.addMethod("letras", function(value, element) {
         return this.optional(element) || /^[a-zA-ZñÑáÁéÉíÍóÓúÚ ]*$/.test(value);
     });
@@ -318,6 +356,10 @@ $(document).ready(function() {
                 maxnumero: true
             },
             txt_fono: {
+                digits: true,
+                maxlength: 11
+            },
+            txt_tipo_multa_det: {
                 digits: true,
                 maxlength: 11
             }
@@ -397,10 +439,13 @@ $(document).ready(function() {
                     return "<button type='button' class='traza_apr btn btn-warning' title='Traza APR'><i class='fas fa-shoe-prints'></i></button>";
                 }
             },
-            { "data": "fono" }
+            { "data": "fono" },
+            { "data": "id_tipo_multa" },
+            { "data": "tipo_multa" },
+            { "data": "detalle_multa" }
         ],
         "columnDefs": [
-            { "targets": [0, 3, 4, 5, 6, 7, 8, 12, 16], "visible": false, "searchable": false }
+            { "targets": [0, 3, 4, 5, 6, 7, 8, 12, 16, 17, 18, 19], "visible": false, "searchable": false }
         ],
         language: {
             "decimal": "",

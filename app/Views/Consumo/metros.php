@@ -1,3 +1,8 @@
+<?php 
+	$sesión = session(); 
+?>
+<input type="text" name="txt_id_tipo_multa_ses" id="txt_id_tipo_multa_ses" value="<?php echo $sesión->id_tipo_multa_ses; ?>">
+<input type="text" name="txt_tipo_multa_detalle_ses" id="txt_tipo_multa_detalle_ses" value="<?php echo $sesión->tipo_multa_detalle_ses; ?>">
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -125,13 +130,13 @@
 				                        <div class="row">
 				                        	<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
 					                         	<div class="form-group">
-					                                <label class="small mb-1" for="dt_fecha_ingreso">Fecha Ingreso</label>
+					                                <label class="small mb-1" for="dt_fecha_ingreso">Mes de Consumo</label>
 					                                <input type='text' class="form-control" id='dt_fecha_ingreso' name="dt_fecha_ingreso" />
 					                            </div>
 					                        </div>
 					                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
 					                         	<div class="form-group">
-					                                <label class="small mb-1" for="dt_fecha_vencimiento">Fecha Vencimiento</label>
+					                                <label class="small mb-1" for="dt_fecha_vencimiento">Fecha Vencimiento del Pago</label>
 					                                <input type='text' class="form-control" id='dt_fecha_vencimiento' name="dt_fecha_vencimiento" />
 					                            </div>
 					                        </div>

@@ -28,7 +28,7 @@
 							sec.nombre as sector,
 							med.id_diametro,
 							d.glosa as diametro,
-							date_format(m.fecha_ingreso, '%d-%m-%Y') as fecha_ingreso,
+							date_format(m.fecha_ingreso, '%m-%Y') as fecha_ingreso,
 							date_format(m.fecha_vencimiento, '%d-%m-%Y') as fecha_vencimiento,
 							m.consumo_anterior,
 							m.consumo_actual,
@@ -425,6 +425,40 @@
 
 			$salida = array('data' => $data);
 			return json_encode($salida);
+		}
+
+		public function calcular_multa($db, $id_multa, $multa_detalle, $id_socio) {
+			define("PENDIENTE", 1);
+			define("PORCENTAJE", 1);
+			define("PESO_FIJO", 2);
+
+			$consulta = "SELECT ifnull(sum(case when fecha_vencimiento < curdate() then total_mes else 0 end), 0) as deuda from metros where fecha_ingreso < curdate() and id_socio = ? and estado = ?";
+
+			$query = $db->query($consulta, [$id_socio, PENDIENTE]);
+			$data = $query->getResultArray();
+
+			$deuda = intval($data[0]["deuda"]);
+
+			$multa = 0;
+
+			if ($deuda > 0) {
+				switch ($id_multa) {
+					case PORCENTAJE:
+						$multa = ($deuda * intval($multa_detalle)) / 100;
+						break;
+					
+					case PESO_FIJO:
+						$multa = intval($multa_detalle);
+						break;
+
+					default:
+						$multa = 0;
+						break;
+				}	
+			}
+			
+			$datosMulta = ["multa" => $multa];
+			return json_encode($datosMulta);
 		}
 	}
 ?>

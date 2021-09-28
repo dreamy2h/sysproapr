@@ -4,16 +4,19 @@
 	use App\Controllers\BaseController;
 	use App\Models\Configuracion\Md_apr;
 	use App\Models\Configuracion\Md_apr_traza;
+	use App\Models\Configuracion\Md_tipo_multa;
 
 	class Ctrl_apr extends BaseController {
 		protected $apr;
 		protected $apr_traza;
+		protected $tipo_multa;
 		protected $sesión;
 		protected $db;
 
 		public function __construct() {
 			$this->apr = new Md_apr();
 			$this->apr_traza = new Md_apr_traza();
+			$this->tipo_multa = new Md_tipo_multa();
 			$this->sesión = session();
 			$this->db = \Config\Database::connect();
 		}
@@ -49,6 +52,8 @@
 			$resto_direccion = $this->request->getPost("resto_direccion");
 			$tope_subsidio = $this->request->getPost("tope_subsidio");
 			$fono = $this->request->getPost("fono");
+			$tipo_multa = $this->request->getPost("tipo_multa");
+			$tipo_multa_det = $this->request->getPost("tipo_multa_det");
 
 			$rut_completo = explode("-", $rut_apr);
 			$rut = $rut_completo[0];
@@ -65,7 +70,9 @@
 				"dv" => $dv,
 				"id_usuario" => $id_usuario,
 				"fecha" => $fecha,
-				"fono" => $fono
+				"fono" => $fono,
+				"id_tipo_multa" => $tipo_multa,
+				"tipo_multa_detalle" => $tipo_multa_det
 			];
 
 			if ($id_apr != "") {
@@ -121,6 +128,13 @@
 		public function v_importar_logo() {
 			$this->validar_sesion();
 			echo view("Configuracion/apr_importar_logo");
+		}
+
+		public function llenar_cmb_tipo_multa() {
+			$this->validar_sesion();
+			$datosTipoMulta = $this->tipo_multa->select("id")->select("glosa as tipo_multa")->where("estado", 1)->findAll();
+
+			return json_encode($datosTipoMulta);
 		}
 	}
 ?>

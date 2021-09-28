@@ -8,6 +8,7 @@
 	use App\Models\Formularios\Md_convenio_detalle;
 	use App\Models\Formularios\Md_repactaciones_detalle;
 	use App\Models\Formularios\Md_arranques;
+	use App\Models\Formularios\Md_medidores;
 
 	class Ctrl_metros extends BaseController {
 		protected $metros;
@@ -16,6 +17,7 @@
 		protected $convenio_detalle;
 		protected $repactaciones_detalle;
 		protected $arranques;
+		protected $medidores;
 		protected $sesión;
 		protected $db;
 
@@ -26,6 +28,7 @@
 			$this->convenio_detalle = new Md_convenio_detalle();
 			$this->repactaciones_detalle = new Md_repactaciones_detalle();
 			$this->arranques = new Md_arranques();
+			$this->medidores = new Md_medidores();
 			$this->sesión = session();
 			$this->db = \Config\Database::connect();
 		}
@@ -74,7 +77,7 @@
 			$datosMetros = [
 				"id_socio" => $id_socio,
 				"monto_subsidio" => $monto_subsidio,
-				"fecha_ingreso" =>  date_format(date_create($fecha_ingreso), 'Y-m-d'),
+				"fecha_ingreso" =>  date_format(date_create("01-" . $fecha_ingreso), 'Y-m-d'),
 				"fecha_vencimiento" => date_format(date_create($fecha_vencimiento), 'Y-m-d'),
 				"consumo_anterior" => $consumo_anterior,
 				"consumo_actual" => $consumo_actual,
@@ -113,6 +116,15 @@
 			];
 
 			$this->metros_traza->save($datosTraza);
+
+			$datosArranque = $this->arranques->select("id_medidor")->where("id_socio", $id_socio)->first();
+
+			$datosMedidor = [
+				"id" => $datosArranque["id_medidor"],
+				"consumo" => $consumo_actual
+			];
+
+			$this->medidores->save($datosMedidor);
 
 			$this->db->transComplete();
 
@@ -256,6 +268,7 @@
 		}
 
 		public function existe_consumo_mes() {
+			$this->validar_sesion();
 			$id_socio = $this->request->getPost("id_socio");
 			$fecha_vencimiento = $this->request->getPost("fecha_vencimiento");
 
@@ -268,6 +281,13 @@
 		public function v_importar_planilla() {
 			$this->validar_sesion();
 			echo view("Consumo/importar_planilla");
+		}
+
+		public function calcular_multa() {
+			$this->validar_sesion();
+			$id_socio = $this->request->getPost("id_socio");
+
+			return $this->metros->calcular_multa($this->db, $this->sesión->id_tipo_multa_ses, $this->sesión->tipo_multa_detalle_ses, $id_socio);
 		}
 	}
 ?>

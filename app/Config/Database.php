@@ -33,9 +33,9 @@ class Database extends Config
 	public $default = [
 		'DSN'      => '',
 		'hostname' => 'localhost',
-		'username' => 'sysproa1',
-		'password' => 'mT3uBI8M01a@y#',
-		'database' => 'sysproa1_db_sisproapr',
+		'username' => 'root',
+		'password' => '',
+		'database' => 'db_sisproapr',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,

@@ -23,7 +23,7 @@ class App extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $baseURL = 'https://sisproapr.cl/public/';
+	public $baseURL = 'http://localhost/sisproapr/public/';
 
 	/**
 	 * --------------------------------------------------------------------------
