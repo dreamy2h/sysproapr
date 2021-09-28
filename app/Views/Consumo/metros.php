@@ -1,8 +1,8 @@
 <?php 
 	$sesión = session(); 
 ?>
-<input type="text" name="txt_id_tipo_multa_ses" id="txt_id_tipo_multa_ses" value="<?php echo $sesión->id_tipo_multa_ses; ?>">
-<input type="text" name="txt_tipo_multa_detalle_ses" id="txt_tipo_multa_detalle_ses" value="<?php echo $sesión->tipo_multa_detalle_ses; ?>">
+<input type="hidden" name="txt_id_tipo_multa_ses" id="txt_id_tipo_multa_ses" value="<?php echo $sesión->id_tipo_multa_ses; ?>">
+<input type="hidden" name="txt_tipo_multa_detalle_ses" id="txt_tipo_multa_detalle_ses" value="<?php echo $sesión->tipo_multa_detalle_ses; ?>">
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
