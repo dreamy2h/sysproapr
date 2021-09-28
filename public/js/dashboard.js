@@ -161,19 +161,19 @@ $(document).ready(function() {
     grafico_mensualidad();
 
     $("#card_socios").on("click", function(){
-        $("#content").load(base_url + "/index.php/ctrl_menu/socios");
+        $("#content").load(base_url + "/ctrl_menu/socios");
     });
 
     $("#card_informe_mensual").on("click", function(){
-        $("#content").load(base_url + "/index.php/ctrl_menu/informe_mensualidad");
+        $("#content").load(base_url + "/ctrl_menu/informe_mensualidad");
     });
 
     $("#card_afecto_corte").on("click", function(){
-        $("#content").load(base_url + "/index.php/ctrl_menu/informe_afecto_corte");
+        $("#content").load(base_url + "/ctrl_menu/informe_afecto_corte");
     });
     
     $("#card_informe_municipal").on("click", function(){
-        $("#content").load(base_url + "/index.php/ctrl_menu/informe_municipalidad_subsidios");
+        $("#content").load(base_url + "/ctrl_menu/informe_municipalidad_subsidios");
     });
 
 });
