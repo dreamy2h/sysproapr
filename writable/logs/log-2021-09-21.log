@@ -1,0 +1,77 @@
+CRITICAL - 2021-09-21 18:18:51 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::findAll()
+#0 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Configuracion\Ctrl_apr->llenar_cmb_tipo_multa()
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Configuracion\Ctrl_apr))
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-09-21 18:19:07 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::findAll()
+#0 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Configuracion\Ctrl_apr->llenar_cmb_tipo_multa()
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Configuracion\Ctrl_apr))
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-09-21 18:22:04 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::findAll()
+#0 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Configuracion\Ctrl_apr->llenar_cmb_tipo_multa()
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Configuracion\Ctrl_apr))
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2021-09-21 18:22:23 --> Unknown column 'activo' in 'where clause'
+CRITICAL - 2021-09-21 18:22:23 --> Unknown column 'activo' in 'where clause'
+#0 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(329): mysqli->query('SELECT `id`\nFRO...')
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`\nFRO...')
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\BaseConnection.php(647): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`\nFRO...')
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1881): CodeIgniter\Database\BaseConnection->query('SELECT `id`\nFRO...', Array, false)
+#4 C:\xampp\htdocs\sisproapr\app\Controllers\Configuracion\Ctrl_apr.php(130): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Configuracion\Ctrl_apr->llenar_cmb_tipo_multa()
+#6 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Configuracion\Ctrl_apr))
+#7 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-09-21 18:27:24 --> syntax error, unexpected ','
+#0 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Router\Router.php(169): CodeIgniter\Router\Router->autoRoute('Configuracion/C...')
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(809): CodeIgniter\Router\Router->handle('Configuracion/C...')
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(389): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-09-21 18:27:25 --> syntax error, unexpected ','
+#0 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Router\Router.php(169): CodeIgniter\Router\Router->autoRoute('Configuracion/C...')
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(809): CodeIgniter\Router\Router->handle('Configuracion/C...')
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(389): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-09-21 20:08:54 --> Undefined variable: sesion
+#0 C:\xampp\htdocs\sisproapr\app\Views\Consumo\metros.php(1): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 1, Array)
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\View\View.php(230): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Common.php(1271): CodeIgniter\View\View->render('Consumo/metros', Array, true)
+#4 C:\xampp\htdocs\sisproapr\app\Controllers\Ctrl_menu.php(154): view('Consumo/metros')
+#5 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Ctrl_menu->metros()
+#6 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ctrl_menu))
+#7 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-09-21 20:09:05 --> Undefined variable: sesion
+#0 C:\xampp\htdocs\sisproapr\app\Views\Consumo\metros.php(1): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 1, Array)
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\View\View.php(230): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Common.php(1271): CodeIgniter\View\View->render('Consumo/metros', Array, true)
+#4 C:\xampp\htdocs\sisproapr\app\Controllers\Ctrl_menu.php(154): view('Consumo/metros')
+#5 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Ctrl_menu->metros()
+#6 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ctrl_menu))
+#7 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-09-21 20:10:07 --> Undefined variable: sesión
+#0 C:\xampp\htdocs\sisproapr\app\Views\Consumo\metros.php(1): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 1, Array)
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\View\View.php(230): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Common.php(1271): CodeIgniter\View\View->render('Consumo/metros', Array, true)
+#4 C:\xampp\htdocs\sisproapr\app\Controllers\Ctrl_menu.php(154): view('Consumo/metros')
+#5 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Ctrl_menu->metros()
+#6 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ctrl_menu))
+#7 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

@@ -1,0 +1,130 @@
+ERROR - 2021-09-27 18:43:57 --> Unknown column 'm.consumo' in 'field list'
+CRITICAL - 2021-09-27 18:43:57 --> Unknown column 'm.consumo' in 'field list'
+#0 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(329): mysqli->query('SELECT `s`.`id`...')
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `s`.`id`...')
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\BaseConnection.php(647): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `s`.`id`...')
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1881): CodeIgniter\Database\BaseConnection->query('SELECT `s`.`id`...', Array, false)
+#4 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Model.php(197): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\BaseModel.php(603): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\sisproapr\app\Controllers\Consumo\Ctrl_metros.php(208): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Consumo\Ctrl_metros->datatable_buscar_socio()
+#8 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Consumo\Ctrl_metros))
+#9 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2021-09-27 18:44:03 --> Unknown column 'm.consumo' in 'field list'
+CRITICAL - 2021-09-27 18:44:03 --> Unknown column 'm.consumo' in 'field list'
+#0 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(329): mysqli->query('SELECT `s`.`id`...')
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `s`.`id`...')
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\BaseConnection.php(647): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `s`.`id`...')
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1881): CodeIgniter\Database\BaseConnection->query('SELECT `s`.`id`...', Array, false)
+#4 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Model.php(197): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\BaseModel.php(603): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\sisproapr\app\Controllers\Consumo\Ctrl_metros.php(208): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Consumo\Ctrl_metros->datatable_buscar_socio()
+#8 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Consumo\Ctrl_metros))
+#9 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2021-09-27 18:44:28 --> Unknown column 'm.consumo' in 'field list'
+CRITICAL - 2021-09-27 18:44:28 --> Unknown column 'm.consumo' in 'field list'
+#0 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(329): mysqli->query('SELECT `s`.`id`...')
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `s`.`id`...')
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\BaseConnection.php(647): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `s`.`id`...')
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1881): CodeIgniter\Database\BaseConnection->query('SELECT `s`.`id`...', Array, false)
+#4 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Model.php(197): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\BaseModel.php(603): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\sisproapr\app\Controllers\Consumo\Ctrl_metros.php(208): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Consumo\Ctrl_metros->datatable_buscar_socio()
+#8 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Consumo\Ctrl_metros))
+#9 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2021-09-27 18:45:23 --> Unknown column 'm.consumo' in 'field list'
+CRITICAL - 2021-09-27 18:45:23 --> Unknown column 'm.consumo' in 'field list'
+#0 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(329): mysqli->query('SELECT `s`.`id`...')
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `s`.`id`...')
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\BaseConnection.php(647): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `s`.`id`...')
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1881): CodeIgniter\Database\BaseConnection->query('SELECT `s`.`id`...', Array, false)
+#4 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\Model.php(197): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\BaseModel.php(603): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\sisproapr\app\Controllers\Consumo\Ctrl_metros.php(208): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Consumo\Ctrl_metros->datatable_buscar_socio()
+#8 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Consumo\Ctrl_metros))
+#9 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-09-27 18:51:20 --> Call to undefined function App\Controllers\Consumo\cgetPost()
+#0 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Consumo\Ctrl_metros->calcular_multa()
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Consumo\Ctrl_metros))
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-09-27 18:51:20 --> Call to undefined function App\Controllers\Consumo\cgetPost()
+#0 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Consumo\Ctrl_metros->calcular_multa()
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Consumo\Ctrl_metros))
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-09-27 18:51:57 --> Undefined variable: db
+#0 C:\xampp\htdocs\sisproapr\app\Models\Consumo\Md_metros.php(435): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 435, Array)
+#1 C:\xampp\htdocs\sisproapr\app\Controllers\Consumo\Ctrl_metros.php(278): App\Models\Consumo\Md_metros->calcular_multa('108')
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Consumo\Ctrl_metros->calcular_multa()
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Consumo\Ctrl_metros))
+#4 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-09-27 18:52:04 --> Undefined variable: db
+#0 C:\xampp\htdocs\sisproapr\app\Models\Consumo\Md_metros.php(435): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 435, Array)
+#1 C:\xampp\htdocs\sisproapr\app\Controllers\Consumo\Ctrl_metros.php(278): App\Models\Consumo\Md_metros->calcular_multa('108')
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Consumo\Ctrl_metros->calcular_multa()
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Consumo\Ctrl_metros))
+#4 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-09-27 19:00:42 --> Undefined index: deuda
+#0 C:\xampp\htdocs\sisproapr\app\Models\Consumo\Md_metros.php(438): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 438, Array)
+#1 C:\xampp\htdocs\sisproapr\app\Controllers\Consumo\Ctrl_metros.php(278): App\Models\Consumo\Md_metros->calcular_multa(Object(CodeIgniter\Database\MySQLi\Connection), '108')
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Consumo\Ctrl_metros->calcular_multa()
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Consumo\Ctrl_metros))
+#4 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-09-27 19:00:42 --> Undefined index: deuda
+#0 C:\xampp\htdocs\sisproapr\app\Models\Consumo\Md_metros.php(438): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 438, Array)
+#1 C:\xampp\htdocs\sisproapr\app\Controllers\Consumo\Ctrl_metros.php(278): App\Models\Consumo\Md_metros->calcular_multa(Object(CodeIgniter\Database\MySQLi\Connection), '108')
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Consumo\Ctrl_metros->calcular_multa()
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Consumo\Ctrl_metros))
+#4 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-09-27 19:25:12 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::first()
+#0 C:\xampp\htdocs\sisproapr\app\Controllers\Consumo\Ctrl_metros.php(278): App\Models\Consumo\Md_metros->calcular_multa(Object(CodeIgniter\Database\MySQLi\Connection), '1', '1000', '108')
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Consumo\Ctrl_metros->calcular_multa()
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Consumo\Ctrl_metros))
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-09-27 19:25:12 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::first()
+#0 C:\xampp\htdocs\sisproapr\app\Controllers\Consumo\Ctrl_metros.php(278): App\Models\Consumo\Md_metros->calcular_multa(Object(CodeIgniter\Database\MySQLi\Connection), '1', '1000', '108')
+#1 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Consumo\Ctrl_metros->calcular_multa()
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Consumo\Ctrl_metros))
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-09-27 19:31:16 --> Undefined variable: multa
+#0 C:\xampp\htdocs\sisproapr\app\Models\Consumo\Md_metros.php(456): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 456, Array)
+#1 C:\xampp\htdocs\sisproapr\app\Controllers\Consumo\Ctrl_metros.php(278): App\Models\Consumo\Md_metros->calcular_multa(Object(CodeIgniter\Database\MySQLi\Connection), '1', '1000', '108')
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Consumo\Ctrl_metros->calcular_multa()
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Consumo\Ctrl_metros))
+#4 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-09-27 19:31:16 --> Undefined variable: multa
+#0 C:\xampp\htdocs\sisproapr\app\Models\Consumo\Md_metros.php(456): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 456, Array)
+#1 C:\xampp\htdocs\sisproapr\app\Controllers\Consumo\Ctrl_metros.php(278): App\Models\Consumo\Md_metros->calcular_multa(Object(CodeIgniter\Database\MySQLi\Connection), '1', '1000', '108')
+#2 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(928): App\Controllers\Consumo\Ctrl_metros->calcular_multa()
+#3 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Consumo\Ctrl_metros))
+#4 C:\xampp\htdocs\sisproapr\vendor\codeigniter4\framework\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\sisproapr\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
