@@ -113,21 +113,21 @@
 	    	$consulta = "SELECT 
 							date_format(c.fecha, '%d-%m-%Y') as fecha_pago,
 						    (select count(*) as cantidad_boletas from 
-+							caja c2 inner join caja_detalle cd on cd.id_caja = c2.id inner join metros m on cd.id_metros = m.id
-+							where  c2.id_apr = c.id_apr and date_format(c2.fecha, '%d-%m-%Y') = date_format(c.fecha, '%d-%m-%Y')) as cantidad_boletas,
-+							(select sum(m.subtotal) as subtotal from 
-+							caja c2 inner join caja_detalle cd on cd.id_caja = c2.id inner join metros m on cd.id_metros = m.id
-+							where  c2.id_apr = c.id_apr and date_format(c2.fecha, '%d-%m-%Y') = date_format(c.fecha, '%d-%m-%Y')) as subtotal,
-+							(select sum(m.monto_subsidio) as subtotal from 
-+							caja c2 inner join caja_detalle cd on cd.id_caja = c2.id inner join metros m on cd.id_metros = m.id
-+							where  c2.id_apr = c.id_apr and date_format(c2.fecha, '%d-%m-%Y') = date_format(c.fecha, '%d-%m-%Y')) as subsidios,
-+							(select sum(m.multa) as subtotal from 
-+							caja c2 inner join caja_detalle cd on cd.id_caja = c2.id inner join metros m on cd.id_metros = m.id
-+							where  c2.id_apr = c.id_apr and date_format(c2.fecha, '%d-%m-%Y') = date_format(c.fecha, '%d-%m-%Y')) as multas,
-+							(select sum(m.total_servicios) as subtotal from 
-+							caja c2 inner join caja_detalle cd on cd.id_caja = c2.id inner join metros m on cd.id_metros = m.id
-+							where  c2.id_apr = c.id_apr and date_format(c2.fecha, '%d-%m-%Y') = date_format(c.fecha, '%d-%m-%Y')) as servicios,
-+							sum(c.total_pagar) as total_pagado
+							caja c2 inner join caja_detalle cd on cd.id_caja = c2.id inner join metros m on cd.id_metros = m.id
+							where  c2.id_apr = c.id_apr and date_format(c2.fecha, '%d-%m-%Y') = date_format(c.fecha, '%d-%m-%Y')) as cantidad_boletas,
+							(select sum(m.subtotal) as subtotal from 
+							caja c2 inner join caja_detalle cd on cd.id_caja = c2.id inner join metros m on cd.id_metros = m.id
+							where  c2.id_apr = c.id_apr and date_format(c2.fecha, '%d-%m-%Y') = date_format(c.fecha, '%d-%m-%Y')) as subtotal,
+							(select sum(m.monto_subsidio) as subtotal from 
+							caja c2 inner join caja_detalle cd on cd.id_caja = c2.id inner join metros m on cd.id_metros = m.id
+							where  c2.id_apr = c.id_apr and date_format(c2.fecha, '%d-%m-%Y') = date_format(c.fecha, '%d-%m-%Y')) as subsidios,
+							(select sum(m.multa) as subtotal from 
+							caja c2 inner join caja_detalle cd on cd.id_caja = c2.id inner join metros m on cd.id_metros = m.id
+							where  c2.id_apr = c.id_apr and date_format(c2.fecha, '%d-%m-%Y') = date_format(c.fecha, '%d-%m-%Y')) as multas,
+							(select sum(m.total_servicios) as subtotal from 
+							caja c2 inner join caja_detalle cd on cd.id_caja = c2.id inner join metros m on cd.id_metros = m.id
+							where  c2.id_apr = c.id_apr and date_format(c2.fecha, '%d-%m-%Y') = date_format(c.fecha, '%d-%m-%Y')) as servicios,
+							sum(c.total_pagar) as total_pagado
 						from 
 							caja c
 						where 
