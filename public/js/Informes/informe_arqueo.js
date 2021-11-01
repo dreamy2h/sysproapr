@@ -109,7 +109,7 @@ $(document).ready(function() {
         orderClasses: true,
         dom: 'Bfrtilp',
         columns: [
-            { "data": "id_caja" },
+            { "data": "usuario" },
             { "data": "rol_socio" },
             { "data": "nombre_socio" },
             { "data": "forma_pago" },
@@ -128,36 +128,36 @@ $(document).ready(function() {
                 }
             },
             { 
-            	"data": "pagado",
+                "data": "pagado",
             	"render": function(data, type, row) {
                     return peso.formateaNumero(data);
                 }
             },
             { 
-            	"data": "entregado",
+                "data": "entregado",
             	"render": function(data, type, row) {
                     return peso.formateaNumero(data);
                 }
             },
             { 
-            	"data": "vuelto",
+                "data": "vuelto",
             	"render": function(data, type, row) {
                     return peso.formateaNumero(data);
                 }
             },
-            { "data": "usuario" }
+            { "data": "id_caja" }
         ],
         footerCallback: function (row, data, start, end, display) {
             var api = this.api();
             $( api.column(6).footer()).html(
                 peso.formateaNumero(api.column(6, {page:'current'} ).data().sum())
-            );
-
-            $( api.column(7).footer()).html(
-                peso.formateaNumero(api.column(7, {page:'current'} ).data().sum())
-            );
-
-            $( api.column(8).footer()).html(
+                );
+                
+                $( api.column(7).footer()).html(
+                    peso.formateaNumero(api.column(7, {page:'current'} ).data().sum())
+                    );
+                    
+                    $( api.column(8).footer()).html(
                 peso.formateaNumero(api.column(8, {page:'current'} ).data().sum())
             );
         },

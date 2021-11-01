@@ -270,9 +270,9 @@
 		public function existe_consumo_mes() {
 			$this->validar_sesion();
 			$id_socio = $this->request->getPost("id_socio");
-			$fecha_vencimiento = $this->request->getPost("fecha_vencimiento");
+			$fecha_ingreso = $this->request->getPost("fecha_ingreso");
 
-			$existe_consumo_mes = $this->metros->select("count(*) as filas")->where("id_socio", $id_socio)->where("date_format(fecha_vencimiento, '%m-%Y')", date_format(date_create($fecha_vencimiento), 'm-Y'))->where("estado", 1)->first();
+			$existe_consumo_mes = $this->metros->select("count(*) as filas")->where("id_socio", $id_socio)->where("date_format(fecha_ingreso, '%m-%Y')", date_format(date_create($fecha_ingreso), 'm-Y'))->where("estado", 1)->first();
 			$filas = $existe_consumo_mes["filas"];
 
 			echo $filas;

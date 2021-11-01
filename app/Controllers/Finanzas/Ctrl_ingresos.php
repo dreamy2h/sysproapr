@@ -175,7 +175,7 @@
 
 		public function datatable_buscar_funcionario() {
 			$this->validar_sesion();
-			$datosFuncionario = $this->funcionarios->select("id as id_funcionario")->select("concat(nombres, ' ', ape_pat, ' ', ape_pat) as nombre_funcionario")->select("concat(rut, '-', dv) as rut_funcionario")->where("id_apr", $this->sesión->id_apr_ses)->where("estado", 1)->findAll();
+			$datosFuncionario = $this->funcionarios->select("id as id_funcionario")->select("concat(nombres, ' ', ape_pat, ' ', ape_mat) as nombre_funcionario")->select("concat(rut, '-', dv) as rut_funcionario")->where("id_apr", $this->sesión->id_apr_ses)->where("estado", 1)->findAll();
 
 			$salida = array("data" => $datosFuncionario);
 			return json_encode($salida);

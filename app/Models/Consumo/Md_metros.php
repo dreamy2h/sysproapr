@@ -17,6 +17,7 @@
 
 	    	$consulta = "SELECT 
 							m.id as id_metros,
+							m.folio_bolect,
 							m.id_socio,
 							concat(soc.rut, '-', soc.dv) as rut_socio,
 							soc.rol as rol_socio,
@@ -37,6 +38,7 @@
 							ifnull(m.multa, 0) as multa,
 							ifnull(m.total_servicios, 0) as total_servicios,
 							ifnull(m.cuota_repactacion, 0) as cuota_repactacion,
+							(select sum(total_mes) from metros m2 where m2.id_socio = m.id_socio and m2.estado = 1 and m2.id < m.id) as saldo_anterior,
 							ifnull(m.total_mes, 0) as total_mes,
 							ifnull(m.cargo_fijo, 0) as cargo_fijo,
                             ifnull(m.monto_facturable, 0) as monto_facturable,

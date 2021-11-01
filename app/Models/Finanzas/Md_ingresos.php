@@ -62,8 +62,8 @@
 	    	$estado = ACTIVO;
 	    	$datosBusqueda = json_decode($datosBusqueda, true);
 
-	    	$fecha_desde = $datosBusqueda["fecha_desde"];
-			$fecha_hasta = $datosBusqueda["fecha_hasta"];
+	    	$fecha_desde = date_format(date_create($datosBusqueda["fecha_desde"] . " 00:00"), 'Y-m-d H:i');
++			$fecha_hasta = date_format(date_create($datosBusqueda["fecha_hasta"] . " 23:59"), 'Y-m-d H:i');
 			$id_tipo_ingreso = $datosBusqueda["id_tipo_ingreso"];
 			$id_tipo_entidad = $datosBusqueda["id_tipo_entidad"];
 			$id_entidad = $datosBusqueda["id_entidad"];
@@ -101,7 +101,7 @@
 			$bind = [$id_apr, $estado];
 
 			if ($fecha_desde != "" and $fecha_hasta != "") {
-				$consulta .= " and date_format(i.fecha, '%d-%m-%Y') between '$fecha_desde' and '$fecha_hasta'";
+				$consulta .= " and i.fecha_ingreso between '$fecha_desde' and '$fecha_hasta'";
 				array_push($bind, [$fecha_desde, $fecha_hasta]);
 			}
 			

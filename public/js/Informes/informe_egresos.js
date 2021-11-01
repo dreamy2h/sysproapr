@@ -23,7 +23,7 @@ function llenar_cmb_tipo_egreso() {
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: base_url + "/Finanzas/Ctrl_egresos/llenar_cmb_tipo_egreso",
+        url: base_url + "/Finanzas/Ctrl_egresos/llenar_cmb_tipo_egreso/0",
     }).done( function(data) {
         $("#cmb_tipo_egreso").html('');
 

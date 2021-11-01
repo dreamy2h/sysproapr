@@ -46,6 +46,7 @@ $(document).ready(function() {
         dom: 'Bfrtilp',
         columns: [
             { "data": "id_metros" },
+            { "data": "folio_bolect"},
             { "data": "rol_socio" },
             { "data": "rut" },
             { "data": "nombre_socio" },
@@ -77,6 +78,12 @@ $(document).ready(function() {
                 }
             },
             { 
+                "data": "saldo_anterior",
+                "render": function(data, type, row) {
+                    return peso.formateaNumero(data);
+                }
+            },
+            { 
                 "data": "total_mes",
                 "render": function(data, type, row) {
                     return peso.formateaNumero(data);
@@ -86,6 +93,10 @@ $(document).ready(function() {
         ],
         footerCallback: function (row, data, start, end, display) {
             var api = this.api();
+            $( api.column(6).footer()).html(
+                peso.formateaNumero(api.column(6, {page:'current'} ).data().sum())
+            );
+
             $( api.column(7).footer()).html(
                 peso.formateaNumero(api.column(7, {page:'current'} ).data().sum())
             );

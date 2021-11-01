@@ -112,16 +112,24 @@
 	    public function datatable_informe_mensual($db, $id_apr, $mes_consumo) {
 	    	$consulta = "SELECT 
 							date_format(c.fecha, '%d-%m-%Y') as fecha_pago,
-						    count(*) as cantidad_boletas,
-						    sum(m.subtotal) as subtotal,
-						    sum(m.monto_subsidio) as subsidios,
-						    sum(m.multa) as multas,
-						    sum(m.total_servicios) as servicios,
-						    sum(c.total_pagar) as total_pagado
+						    (select count(*) as cantidad_boletas from 
++							caja c2 inner join caja_detalle cd on cd.id_caja = c2.id inner join metros m on cd.id_metros = m.id
++							where  c2.id_apr = c.id_apr and date_format(c2.fecha, '%d-%m-%Y') = date_format(c.fecha, '%d-%m-%Y')) as cantidad_boletas,
++							(select sum(m.subtotal) as subtotal from 
++							caja c2 inner join caja_detalle cd on cd.id_caja = c2.id inner join metros m on cd.id_metros = m.id
++							where  c2.id_apr = c.id_apr and date_format(c2.fecha, '%d-%m-%Y') = date_format(c.fecha, '%d-%m-%Y')) as subtotal,
++							(select sum(m.monto_subsidio) as subtotal from 
++							caja c2 inner join caja_detalle cd on cd.id_caja = c2.id inner join metros m on cd.id_metros = m.id
++							where  c2.id_apr = c.id_apr and date_format(c2.fecha, '%d-%m-%Y') = date_format(c.fecha, '%d-%m-%Y')) as subsidios,
++							(select sum(m.multa) as subtotal from 
++							caja c2 inner join caja_detalle cd on cd.id_caja = c2.id inner join metros m on cd.id_metros = m.id
++							where  c2.id_apr = c.id_apr and date_format(c2.fecha, '%d-%m-%Y') = date_format(c.fecha, '%d-%m-%Y')) as multas,
++							(select sum(m.total_servicios) as subtotal from 
++							caja c2 inner join caja_detalle cd on cd.id_caja = c2.id inner join metros m on cd.id_metros = m.id
++							where  c2.id_apr = c.id_apr and date_format(c2.fecha, '%d-%m-%Y') = date_format(c.fecha, '%d-%m-%Y')) as servicios,
++							sum(c.total_pagar) as total_pagado
 						from 
 							caja c
-						    inner join caja_detalle cd on cd.id_caja = c.id
-						    inner join metros m on cd.id_metros = m.id
 						where 
 							c.id_apr = ? and
 							date_format(c.fecha, '%m-%Y') = ?
@@ -129,28 +137,10 @@
 							date_format(c.fecha, '%d-%m-%Y')";
 
 			$query = $db->query($consulta, [$id_apr, $mes_consumo]);
-			$caja = $query->getResultArray();
+			$data = $query->getResultArray();
 
-			foreach ($caja as $key) {
-				$row = array(
-					"fecha_pago" => $key["fecha_pago"],
-					"cantidad_boletas" => $key["cantidad_boletas"],
-					"subtotal" => $key["subtotal"],
-					"subsidios" => $key["subsidios"],
-					"multas" => $key["multas"],
-					"servicios" => $key["servicios"],
-					"total_pagado" => $key["total_pagado"]
-				);
-
-				$data[] = $row;
-			}
-
-			if (isset($data)) {
-				$salida = array("data" => $data);
-				return json_encode($salida);
-			} else {
-				return "{ \"data\": []}";
-			}
+			$salida = array("data" => $data);
+			return json_encode($salida);
 	    }
 
 	}

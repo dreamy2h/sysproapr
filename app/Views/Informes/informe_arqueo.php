@@ -118,7 +118,7 @@
 			                    <table id="grid_pagos" class="table table-bordered" width="100%">
 			                        <thead class="thead-dark">
 			                            <tr>
-			                            	<th>Folio Interno</th>
+			                            	<th>Usuario</th>
 			                            	<th>ROL Socio</th>
 			                            	<th>Nombre Socio</th>
 			                            	<th>Forma Pago</th>
@@ -129,7 +129,7 @@
 			                            	<th>Total Pagado</th>
 			                            	<th>Entregado $</th>
 			                            	<th>Vuelto $</th>
-			                            	<th>Usuario</th>
+			                            	<th>Folio Interno</th>
 			                            </tr>
 			                        </thead>
 			                        <tfoot>
