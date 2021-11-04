@@ -224,7 +224,7 @@
 								'IndExe' => 1,
 								'NmbItem' => 'Consumo de Agua Potable',
 								'QtyItem' => 1,
-								'PrcItem' => $subtotal,
+								'PrcItem' => intval($subtotal) - intval($cargo_fijo),
 								'DescuentoMonto' => $monto_subsidio,
 								'RecargoMonto' => $cargo_fijo
 							]
